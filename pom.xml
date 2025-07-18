@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.ndc.xmlsign</groupId>
-    <artifactId>Libsignxmlsec</artifactId>
-    <version>1.0.0</version>
+    <artifactId>libsignxmlsec</artifactId>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Libsignxmlsec</name>
@@ -51,26 +51,12 @@
                 </includes>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>org.ndc.xmlsign.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub Packages</name>
+            <name>GitHub OWNER Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/ndc1212/Libsignxmlsec</url>
         </repository>
     </distributionManagement>

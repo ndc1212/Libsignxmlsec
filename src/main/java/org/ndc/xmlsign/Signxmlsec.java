@@ -14,22 +14,21 @@ public class Signxmlsec {
     private final Path fileUploadPath = Paths.get(System.getProperty("user.dir"), "xmlsec-uploads");
 
     static {
-        String os = System.getProperty("os.name").toLowerCase();
-        if(os.contains("win")){
-            URL url_signlibxmlsec = Signxmlsec.class.getResource("/natives/windows_64/signlibxmlsec.dll");
-            URL url_libxml2 = Signxmlsec.class.getResource("/natives/windows_64/libxml2.dll");
-            URL url_libxmlsec = Signxmlsec.class.getResource("/natives/windows_64/libxmlsec.dll");
-            URL url_libxmlsec_openssl = Signxmlsec.class.getResource("/natives/windows_64/libxmlsec-openssl.dll");
+        File nativeDir = new File(System.getProperty("user.home"), ".myapp/native");
+        String osName = System.getProperty("os.name").toLowerCase();
+        boolean isWindows = osName.contains("win");
 
-            System.load(url_libxml2.getPath());
-            System.load(url_libxmlsec.getPath());
-            System.load(url_libxmlsec_openssl.getPath());
-            System.load(url_signlibxmlsec.getPath());
-
-        }
-        else if(os.contains("nux") || os.contains("nix")){
-            URL url_signlibxmlsec = Signxmlsec.class.getResource("/natives/linux_64/libsignlibxmlsec.so");
-            System.load(url_signlibxmlsec.getPath());
+        try {
+            if(isWindows) {
+                ResourceExtractor.LoadLibrary("libxml2.dll", nativeDir, isWindows);
+                ResourceExtractor.LoadLibrary("libxmlsec.dll", nativeDir, isWindows);
+                ResourceExtractor.LoadLibrary("libxmlsec-openssl.dll", nativeDir, isWindows);
+                ResourceExtractor.LoadLibrary("signlibxmlsec.dll", nativeDir, isWindows);
+            }else{
+                ResourceExtractor.LoadLibrary("libsignlibxmlsec.so", nativeDir, isWindows);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

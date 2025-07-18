@@ -6,7 +6,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-public class UrlSafeEncryption {
+class UrlSafeEncryption {
     private static final byte[] KEY = "1234567890123456".getBytes(StandardCharsets.UTF_8);
     private static final byte[] IV = "6543210987654321".getBytes(StandardCharsets.UTF_8);
 

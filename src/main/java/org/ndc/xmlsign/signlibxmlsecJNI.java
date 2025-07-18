@@ -8,7 +8,7 @@
 
 package org.ndc.xmlsign;
 
-public class signlibxmlsecJNI {
+class signlibxmlsecJNI {
   public final static native String prepareDataToSign(String jarg1, String jarg2, String jarg3, String jarg4);
   public final static native int finalizeSignature(String jarg1, String jarg2, String jarg3, String jarg4);
 }

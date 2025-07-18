@@ -8,7 +8,7 @@
 
 package org.ndc.xmlsign;
 
-public class signlibxmlsec {
+class signlibxmlsec {
   public static String prepareDataToSign(String xmlPath, String certPemPath, String unsignedXmlPath, String targetNodePath) {
     return signlibxmlsecJNI.prepareDataToSign(xmlPath, certPemPath, unsignedXmlPath, targetNodePath);
   }
